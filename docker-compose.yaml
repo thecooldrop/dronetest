@@ -5,7 +5,7 @@ services:
       DRONE_GITHUB_CLIENT_ID: a722b9e719999f131bd1
       DRONE_GITHUB_CLIENT_SECRET: 0e23bf163463c29129ff49fc7877d21a95bce0c7
       DRONE_RPC_SECRET: 123456
-      DRONE_SERVER_HOST: 64d4-77-182-18-41.eu.ngrok.io
+      DRONE_SERVER_HOST:  3dc6-77-182-18-41.ngrok-free.app
       DRONE_SERVER_PROTO: https
     ports:
       - "80:80"
@@ -20,7 +20,7 @@ services:
       - "3000:3000"
     environment:
       DRONE_RPC_PROTO: https
-      DRONE_RPC_HOST: 64d4-77-182-18-41.eu.ngrok.io
+      DRONE_RPC_HOST:  3dc6-77-182-18-41.ngrok-free.app
       DRONE_RPC_SECRET: 123456
       DRONE_RUNNER_CAPACITY: 2
       DRONE_RUNNER_NAME: my-first-runner
