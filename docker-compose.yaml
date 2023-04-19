@@ -1,0 +1,29 @@
+services:
+  drone-server:
+    image: drone/drone:2.16.0-linux-amd64
+    environment:
+      DRONE_GITHUB_CLIENT_ID: a722b9e719999f131bd1
+      DRONE_GITHUB_CLIENT_SECRET: 0e23bf163463c29129ff49fc7877d21a95bce0c7
+      DRONE_RPC_SECRET: 123456
+      DRONE_SERVER_HOST: 64d4-77-182-18-41.eu.ngrok.io
+      DRONE_SERVER_PROTO: https
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    volumes:
+      - "/var/lib/drone:/data"
+    container_name: server
+  drone-runner:
+    image: drone/drone-runner-docker:1
+    ports:
+      - "3000:3000"
+    environment:
+      DRONE_RPC_PROTO: https
+      DRONE_RPC_HOST: 64d4-77-182-18-41.eu.ngrok.io
+      DRONE_RPC_SECRET: 123456
+      DRONE_RUNNER_CAPACITY: 2
+      DRONE_RUNNER_NAME: my-first-runner
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    container_name: runner
